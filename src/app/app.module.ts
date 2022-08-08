@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { UserComponent } from './user/user.component';
+import { FormsModule } from '@angular/forms';
+import { UserService } from './services/user.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, UsersListComponent, UserComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [UserService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
