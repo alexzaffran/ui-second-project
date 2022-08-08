@@ -1,9 +1,11 @@
 export class UserModel {
   constructor(
-    public id: string,
+    public _id: string,
     public name: string,
     public email: string,
     public city: string,
-    public zipCode: number
+    public zipcode: number,
+    public tasks: [],
+    public posts: []
   ) {}
 }
