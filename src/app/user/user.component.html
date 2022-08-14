@@ -1,1 +1,6 @@
-<p>user works!</p>
+<p>{{ user?._id }}</p>
+<p>{{ user?.name }}</p>
+<p>{{ user?.email }}</p>
+
+<button name="Other Data" (click)="isDisplay = !isDisplay">Other Data</button>
+<app-other-data *ngIf="isDisplay" [user]="user"></app-other-data>
