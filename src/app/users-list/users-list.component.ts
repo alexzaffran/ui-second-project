@@ -10,6 +10,8 @@ import { UserModel } from '../user/models/user.model';
 })
 export class UsersListComponent implements OnInit {
   public usersList: UserModel[] = [];
+  users: any[] = [];
+
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
@@ -21,4 +23,7 @@ export class UsersListComponent implements OnInit {
       error: (err) => console.error(err),
     });
   }
-}
+
+  
+  }
+

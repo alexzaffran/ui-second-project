@@ -9,7 +9,9 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUsersList() {
-    return this.usersList;
+    return this.usersList.map(item=>{
+      return { ...item }
+    });
   }
 
   fetchUsersList() {
@@ -25,4 +27,16 @@ export class UserService {
   setUsersList(users: UserModel[]) {
     this.usersList = users;
   }
+
+  updateUser(user: UserModel){
+    this.usersList = this.usersList.map(item=>{
+      if(item._id === user._id){
+        return user;
+      } else{
+        return item;
+      }
+    })
+  }
 }
+
+

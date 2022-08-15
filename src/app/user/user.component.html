@@ -1,6 +1,22 @@
-<p>{{ user?._id }}</p>
-<p>{{ user?.name }}</p>
-<p>{{ user?.email }}</p>
+<!-- <p>Id :{{ user?._id }}</p>
+<p>Name :{{ user?.name }}</p>
+<p>Email:{{ user?.email }}</p> -->
 
+<!-- <form #f="ngForm">
+  Name :<input name="name" [(ngModel)]="u.name" )] type="text" /><br />
+  Email :<input name="email" [(ngModel)]="u.email" )] type="text" /><br />
+</form> -->
+<div>
+  ID:<input type="text" value="{{ user?._id }}" [(ngModel)]="user._id" /><br />
+  Name:<input
+    type="text"
+    value="{{ user?.name }}"
+    [(ngModel)]="user.name"
+  /><br />
+  Email:<input type="text" value="{{ user?.email }}" [(ngModel)]="user.email" />
+</div>
 <button name="Other Data" (click)="isDisplay = !isDisplay">Other Data</button>
 <app-other-data *ngIf="isDisplay" [user]="user"></app-other-data>
+
+<button name="Update" (click)="updateUser()">Update</button>
+<hr/>
