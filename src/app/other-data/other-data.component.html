@@ -3,7 +3,7 @@
 <div>ZipCode : {{ user?.zipcode }}</div> -->
 
 <div>
-  Street:<input type="text" value="{{ user?.street }}" /><br />
-  City:<input type="text" value="{{ user?.city }}" /><br />
-  ZipCode:<input type="text" value="{{ user?.zipcode }}" />
+  Street:<input type="text" value="{{ user?.street }}" [(ngModel)]="user.street"/><br />
+  City:<input type="text" value="{{ user?.city }}"  [(ngModel)]="user.city"/><br />
+  ZipCode:<input type="text" value="{{ user?.zipcode }}" [(ngModel)]="user.zipcode" />
 </div>
