@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { UserModel } from '../user/models/user.model';
 
 @Injectable()
 export class UserService {
   public usersList: UserModel[] = [];
-  constructor(private http: HttpClient) {}
+  public userListEventEmitter = new EventEmitter<UserModel[]>();
+  constructor(private http: HttpClient ) {}
 
   getUsersList() {
     return this.usersList.map(item=>{
@@ -37,6 +38,24 @@ export class UserService {
       }
     })
   }
+
+  deleteUser(id : string){
+    this.http.delete('http://localhost:8000/api/user/' +id).subscribe((response : UserModel) => {
+      console.log(this.usersList)
+      this.usersList = this.usersList.filter(item=>{
+        if(item._id !== id) {
+          return true
+        }else {
+          return false
+        }
+      })
+      this.getUserListEventEmitter().emit(this.getUsersList())
+
+
+    })
+  }
+
+  getUserListEventEmitter(){
+    return this.userListEventEmitter
+  }
 }
-
-

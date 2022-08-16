@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  sub: Subscription = new Subscription();
+
   @Input() public user?: UserModel = new UserModel();
   isDisplay = false;
 
@@ -31,5 +31,11 @@ export class UserComponent implements OnInit {
       .subscribe((response: UserModel) => {
         this.userService.updateUser(response)
       });
+  }
+
+  deleteUser() {
+    const userid = this.user._id
+    this.userService.deleteUser(userid)
+    console.log(userid)
   }
 }

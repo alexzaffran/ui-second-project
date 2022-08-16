@@ -22,8 +22,10 @@ export class UsersListComponent implements OnInit {
       },
       error: (err) => console.error(err),
     });
+
+    this.userService.getUserListEventEmitter().subscribe(res=> this.usersList = res);
   }
 
-  
+
   }
 
